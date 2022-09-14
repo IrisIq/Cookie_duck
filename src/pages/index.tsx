@@ -1,12 +1,10 @@
 import styles from './index.less';
 import { Button } from 'antd';
-
+import Header from '../components/Header';
 export default function IndexPage() {
   return (
     <div>
-      <h1 className={styles.title}>Page index</h1>
-      <Button type="primary">Primary Button</Button>
-
+      <Header />
     </div>
   );
 }
