@@ -7,6 +7,8 @@ import { HomeOutlined } from '@ant-design/icons';
 
 const items: MenuProps['items'] = [
   { label: '菜单项一', key: 'item-1', icon: <HomeOutlined /> },
+  { label: '菜单项一', key: 'item-1', icon: <HomeOutlined /> },
+  { label: '菜单项一', key: 'item-1', icon: <HomeOutlined /> },
 ];
 
 const Header = () => (
