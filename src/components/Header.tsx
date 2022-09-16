@@ -28,16 +28,22 @@ const items: MenuProps['items'] = [
 const Header = () => (
   <div className="header">
     <Row>
-      <Col>
+      <Col
+        xs={12}
+        sm={12}
+        md={7}
+        lg={{ span: 3, offset: 1 }}
+        xl={{ span: 3, offset: 1 }}
+      >
         <span className="header_logo">鸭鸭饼饼株式会社</span>
       </Col>
-      <Col>
+      <Col xs={12} sm={12} md={6} lg={3} xl={2}>
         <span className="header_txt">这是他们的博客</span>
       </Col>
     </Row>
 
-    <Row justify="center">
-      <Col>
+    <Row justify="end">
+      <Col xs={24} sm={24} md={12} lg={8} xl={10}>
         <Menu mode="horizontal" items={items}></Menu>
       </Col>
     </Row>
