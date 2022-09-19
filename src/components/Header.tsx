@@ -1,5 +1,5 @@
 import React from 'react';
-import '../static/style/components/Header.less';
+import '@/static/style/components/Header.less';
 import { Col, Row, Menu } from 'antd';
 import type { MenuProps } from 'antd';
 
@@ -27,23 +27,14 @@ const items: MenuProps['items'] = [
 
 const Header = () => (
   <div className="header">
-    <Row gutter={0}>
-      <Col
-        xs={12}
-        sm={12}
-        md={7}
-        lg={{ span: 5, offset: 1 }}
-        xl={{ span: 4, offset: 1 }}
-      >
-        <span className="header_logo">鸭鸭饼饼株式会社</span>
+    <Row justify="space-between">
+      <Col xs={24} sm={12} md={12} lg={12} xl={14}>
+        <div className="header_text_box">
+          <span className="header_logo">鸭鸭饼饼株式会社</span>
+          <span className="header_txt">这是他们的博客</span>
+        </div>
       </Col>
-      <Col xs={12} sm={12} md={6} lg={3} xl={2}>
-        <span className="header_txt">这是他们的博客</span>
-      </Col>
-    </Row>
-
-    <Row justify="end">
-      <Col xs={0} sm={0} md={12} lg={8} xl={5}>
+      <Col xs={0} sm={12} md={12} lg={10} xl={10}>
         <Menu mode="horizontal" items={items}></Menu>
       </Col>
     </Row>
