@@ -1,8 +1,9 @@
-import Header from '../components/Header';
+import Header from '@/components/Header';
+import BlogCard from '@/components/BlogCard';
 import '@/static/style/pages/index.less';
 import { Col, Row, Menu } from 'antd';
 
-export default function IndexPage() {
+const IndexPage: React.FC = () => {
   return (
     <div className="content">
       <Header />
@@ -10,16 +11,20 @@ export default function IndexPage() {
       <div className="comm_content">
         <Row className="comm-main" justify="center" gutter={10}>
           <Col className="comm-left" xs={0} sm={0} md={4} lg={4} xl={4}>
-            <div className="com_left_box">左侧</div>
+            <div className="com_left_box">
+              <BlogCard></BlogCard>
+            </div>
           </Col>
-          <Col className="comm-center" xs={24} sm={24} md={20} lg={16} xl={16}>
+          <Col className="comm-center" xs={24} sm={24} md={16} lg={18} xl={14}>
             中间
           </Col>
-          <Col className="comm-right" xs={0} sm={0} md={0} lg={4} xl={4}>
+          <Col className="comm-right" xs={0} sm={0} md={0} lg={0} xl={4}>
             右侧
           </Col>
         </Row>
       </div>
     </div>
   );
-}
+};
+
+export default IndexPage;
