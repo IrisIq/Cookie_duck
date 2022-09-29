@@ -1,5 +1,7 @@
 import Header from '@/components/Header';
 import BlogCard from '@/components/BlogCard';
+import ArticalBox from '@/components/ArticalBox';
+
 import '@/static/style/pages/index.less';
 import { Col, Row, Menu } from 'antd';
 
