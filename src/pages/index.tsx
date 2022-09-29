@@ -18,7 +18,7 @@ const IndexPage: React.FC = () => {
             </div>
           </Col>
           <Col className="comm-center" xs={24} sm={24} md={16} lg={14} xxl={16}>
-            中间
+            <ArticalBox></ArticalBox>
           </Col>
           <Col
             className="comm-right"
