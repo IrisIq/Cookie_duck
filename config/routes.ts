@@ -1,9 +1,17 @@
 const routes = [
   {
-    exact: true,
+    // exact: true,
     path: '/',
     component: 'index',
-    routes: [{ path: '/class', component: '@/components/ArticalBox' }],
+    routes: [
+      { path: '/', component: '@/components/class/Class' },
+      { path: '/class/:id', component: '@/components/class/Class' },
+    ],
+  },
+  {
+    exact: true,
+    path: '/artical/:id',
+    component: '@/pages/artical/index',
   },
 ];
 

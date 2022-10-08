@@ -1,0 +1,42 @@
+.artical-box {
+  height: 8rem;
+  overflow: hidden;
+  .ant-card-body {
+    padding: 0;
+    overflow: hidden;
+  }
+}
+
+// 内容
+.artical-content {
+  display: flex;
+  .artical-img {
+    width: 28rem;
+    height: 8rem;
+    // overflow: hidden;
+    background-size: cover;
+
+    background-image: url(../../img/1.jpg);
+    background-repeat: no-repeat;
+  }
+}
+
+// 盒子内右侧文字区
+.artical-word {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // 第二行 时间 分类 作者
+  .word-others {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .word-introduce {
+    height: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
