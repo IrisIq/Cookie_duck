@@ -7,4 +7,11 @@ export default defineConfig({
   hash: true,
   history: { type: 'browser' },
   routes: routes,
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8717/api/',
+      changeOrigin: true,
+      // pathRewrite: { '^/api': '' },
+    },
+  },
 });

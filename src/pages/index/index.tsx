@@ -1,10 +1,9 @@
 import Header from '@/components/globles/Header';
 import BlogCard from '@/components/globles/BlogCard';
-import ArticalBox from '@/components/globles/ArticalBox';
 
 import '@/static/style/pages/index.less';
-import { Col, Row, Menu } from 'antd';
-import { Switch, Route } from 'umi';
+import { Col, Row } from 'antd';
+import { Switch } from 'umi';
 
 const IndexPage: React.FC = (props) => {
   return (
@@ -19,13 +18,8 @@ const IndexPage: React.FC = (props) => {
             </div>
           </Col>
           <Col className="comm-center" xs={24} sm={24} md={16} lg={14} xxl={16}>
-            {/* <ArticalBox></ArticalBox>
-            {/* <Outlet></Outlet> */}
-            1233123
             {props.children}
-            <Switch>
-              {/* <Route path="/class/all" component="{ArticalBox}" /> */}
-            </Switch>
+            <Switch></Switch>
           </Col>
           <Col
             className="comm-right"

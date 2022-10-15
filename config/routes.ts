@@ -2,14 +2,14 @@ const routes = [
   {
     // exact: true,
     path: '/',
-    component: 'index',
+    component: '@/pages/index/index',
     routes: [
       { path: '/', component: '@/components/class/Class' },
       { path: '/class/:id', component: '@/components/class/Class' },
     ],
   },
   {
-    exact: true,
+    // exact: true,
     path: '/artical/:id',
     component: '@/pages/artical/index',
   },
