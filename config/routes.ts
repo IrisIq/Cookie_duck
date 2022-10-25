@@ -2,14 +2,26 @@ const routes = [
   {
     // exact: true,
     path: '/',
+    redirect: '/index',
+  },
+  {
+    path: '/index',
     component: '@/pages/index/index',
     routes: [
-      { path: '/', component: '@/components/class/Class' },
-      { path: '/class/:id', component: '@/components/class/Class' },
+      {
+        path: '/index',
+        component: '@/components/class/Class',
+        // exact: true,
+      },
+      {
+        path: '/index/class/:id',
+        component: '@/components/class/Class',
+        // exact: true,
+      },
     ],
   },
   {
-    // exact: true,
+    exact: true,
     path: '/artical/:id',
     component: '@/pages/artical/index',
   },

@@ -1,10 +1,15 @@
 import { Card } from 'antd';
+import { history } from 'umi';
+
 import '@/static/style/components/ArticalBox.less';
 // import img from '../static/img/1.jpg';
 
 export default function Class() {
+  const goUrl = () => {
+    history.push('/artical/1');
+  };
   return (
-    <div className="artical-box">
+    <div className="artical-box" onClick={goUrl}>
       <Card hoverable>
         <div className="artical-content">
           <div className="artical-img"></div>

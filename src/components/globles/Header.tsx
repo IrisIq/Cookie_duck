@@ -43,7 +43,7 @@ const items: MenuProps['items'] = [
 
 const Header: React.FC = (props) => {
   const handleMenu: MenuProps['onClick'] = (e) => {
-    // console.log(e.keyPath);
+    console.log(e.keyPath);
     if (e.keyPath.length > 1) {
       let url = '';
       for (let index = e.keyPath.length - 1; index >= 0; index--) {
@@ -51,9 +51,9 @@ const Header: React.FC = (props) => {
 
         url += e.keyPath[index];
       }
-      // console.log(url);
+      console.log(url);
 
-      history.push(url);
+      history.push('/index' + url);
     } else {
       history.push(e.key);
     }

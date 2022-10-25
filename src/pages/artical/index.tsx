@@ -1,7 +1,13 @@
+import { Fragment } from 'react';
+import IndexLayout from '@/components/layout/index';
 import { Switch, Route } from 'umi';
 
 const Artical: React.FC = () => {
-  return <div className="content">这是文章地址</div>;
+  return (
+    <Fragment>
+      <IndexLayout></IndexLayout>
+    </Fragment>
+  );
 };
 
 export default Artical;
