@@ -2,15 +2,12 @@ import { useEffect, useState } from 'react';
 import ArticalBox from '@/components/globles/ArticalBox';
 import { useRouteMatch } from 'umi';
 import { getAllArticals } from '@/api/api';
-import { articlList, getArticalList } from '@/interfaces/interfaces';
 
-interface classInterface {}
-
-const Class: React.FC<classInterface> = () => {
+const Class = () => {
   const router = useRouteMatch();
   // console.log(router);
 
-  const [articalList, setArticalList] = useState<articlList>();
+  const [articalList, setArticalList] = useState();
   // const [data, setDate] = useState({
   //   articalList: ,
   // });
@@ -20,7 +17,7 @@ const Class: React.FC<classInterface> = () => {
   }, []);
 
   const getArticals = async () => {
-    const { data: resData }: any = await getAllArticals({});
+    const { data: resData } = await getAllArticals({});
     console.log(resData.data.list);
     // data.articalList = resData.data.list;
     // setArticalList([...resData.data.list]);
@@ -31,7 +28,7 @@ const Class: React.FC<classInterface> = () => {
 
   return (
     <div className="content">
-      {articalList.map((item: articlList) => {
+      {articalList.map((item) => {
         return <ArticalBox value={item} key={item.id}></ArticalBox>;
       })}
     </div>
