@@ -1,9 +1,21 @@
+import React, { ReactNode } from 'react';
 import Header from '@/components/globles/Header';
-
 import '@/static/style/pages/index.less';
 import { Col, Row } from 'antd';
 
-const IndexLayout: React.FC = (props) => {
+// 暂时解决方案，后续修改
+interface layoutProps {
+  children?: ReactNode;
+  left?: any;
+  center?: any;
+  right?: any;
+}
+
+const IndexLayout: React.FC<layoutProps> = (props) => {
+  const { center, left, right } = props;
+
+  console.log(left);
+
   return (
     <div className="content">
       <Header />
@@ -11,24 +23,13 @@ const IndexLayout: React.FC = (props) => {
       <div className="comm_content">
         <Row className="comm-main" justify="center" gutter={10}>
           <Col className="comm-left" xs={0} sm={0} md={4} lg={2} xl={2} xxl={4}>
-            <div className="com_left_box">
-              {/* 这里放左侧插槽 */}
-              123
-            </div>
+            <div className="com_left_box">{left()}</div>
           </Col>
           <Col className="comm-center" xs={24} sm={24} md={16} lg={14} xxl={16}>
-            {/* 中间的插槽 */}
+            {center()}
           </Col>
-          <Col
-            className="comm-right"
-            xs={0}
-            sm={0}
-            md={0}
-            lg={0}
-            xl={2}
-            xxl={4}
-          >
-            右侧
+          <Col className="comm-right" xs={0} sm={0} md={0} lg={0} xxl={4}>
+            {right()}
           </Col>
         </Row>
       </div>

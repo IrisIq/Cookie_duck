@@ -3,8 +3,13 @@ import { history } from 'umi';
 
 import '@/static/style/components/ArticalBox.less';
 // import img from '../static/img/1.jpg';
+interface classProps {
+  value: any;
+}
 
-export default function Class() {
+const Class: React.FC<classProps> = (props) => {
+  console.log(props);
+
   const goUrl = () => {
     history.push('/artical/1');
   };
@@ -30,4 +35,6 @@ export default function Class() {
       </Card>
     </div>
   );
-}
+};
+
+export default Class;

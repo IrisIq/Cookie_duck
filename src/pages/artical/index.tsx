@@ -1,11 +1,13 @@
 import { Fragment } from 'react';
 import IndexLayout from '@/components/layout/index';
-import { Switch, Route } from 'umi';
+import BlogCard from '@/components/globles/BlogCard';
 
 const Artical: React.FC = () => {
+  const left = () => <BlogCard></BlogCard>;
+
   return (
     <Fragment>
-      <IndexLayout></IndexLayout>
+      <IndexLayout left={left} right={left} center={left}></IndexLayout>
     </Fragment>
   );
 };
