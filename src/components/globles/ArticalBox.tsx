@@ -9,9 +9,9 @@ interface classProps {
 
 const Class: React.FC<classProps> = (props) => {
   console.log(props);
-
+  const { value } = props;
   const goUrl = () => {
-    history.push('/artical/1');
+    history.push('/artical/' + value.id);
   };
   return (
     <div className="artical-box" onClick={goUrl}>
@@ -20,15 +20,13 @@ const Class: React.FC<classProps> = (props) => {
           <div className="artical-img"></div>
 
           <div className="artical-word">
-            <div className="word-title">这是一个标题</div>
+            <div className="word-title">{value.title} </div>
             <div className="word-others">
-              <div className="others-time">2022-09-09</div>
+              <div className="others-time">{value.create_time} </div>
               <div className="others-classification"> 分类</div>
-              <div className="others-auther">作者</div>
+              <div className="others-auther">{value.author} </div>
             </div>
-            <div className="word-introduce">
-              这是文章简介？？？这是文章2131111s简介？？？这是文章简介？？？这是文章简介？？？这是文章简介？？？这是文章简介？？？
-            </div>
+            <div className="word-introduce">{value.content}</div>
             <div className="tag">这是一堆tag</div>
           </div>
         </div>
