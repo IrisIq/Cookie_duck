@@ -18,9 +18,12 @@ const IndexLayout: React.FC<layoutProps> = (props) => {
 
   return (
     <div className="content">
-      <Header />
+      <div>
+        <Header />
+      </div>
 
       <div className="comm_content">
+        <div className="comm_top">123</div>
         <Row className="comm-main" justify="center" gutter={10}>
           <Col className="comm-left" xs={0} sm={0} md={4} lg={2} xl={2} xxl={4}>
             <div className="com_left_box">{left()}</div>

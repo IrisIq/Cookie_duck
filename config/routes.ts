@@ -25,6 +25,11 @@ const routes = [
     path: '/artical/:id',
     component: '@/pages/artical/index',
   },
+  {
+    exact: true,
+    path: '/admin',
+    component: '@/pages/admin/index',
+  },
 ];
 
 export default routes;

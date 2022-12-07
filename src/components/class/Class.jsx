@@ -20,6 +20,7 @@ const Class = () => {
     const { data: resData } = await getAllArticals({});
     console.log(resData.data.list);
     // data.articalList = resData.data.list;
+    console.log(resData);
     setArticalList(resData.data.list);
 
     console.log(articalList);
