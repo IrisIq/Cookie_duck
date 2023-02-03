@@ -1,12 +1,19 @@
-import AdminLayout from '@/components/layout/admin';
 import { useEffect, useState, Fragment } from 'react';
 
-const Admin: React.FC = () => {
+import AdminLayout from '@/components/layout/admin';
+import Header from '@/components/admin/Header';
+import AdminMenu from '@/components/admin/AdminMenu';
+
+const Admin: React.FC = (props) => {
+  const center = () => <Header></Header>;
+  const left = () => <AdminMenu></AdminMenu>;
+  const content = () => props.children;
   return (
     <Fragment>
-      <AdminLayout></AdminLayout>
+      <AdminLayout center={center} left={left} content={content}></AdminLayout>
     </Fragment>
   );
 };
 
 export default Admin;
+1;

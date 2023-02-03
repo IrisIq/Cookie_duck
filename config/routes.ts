@@ -2,7 +2,7 @@ const routes = [
   {
     // exact: true,
     path: '/',
-    redirect: '/index',
+    redirect: '/admin',
   },
   {
     path: '/index',
@@ -11,12 +11,10 @@ const routes = [
       {
         path: '/index',
         component: '@/components/class/Class',
-        // exact: true,
       },
       {
         path: '/index/class/:id',
         component: '@/components/class/Class',
-        // exact: true,
       },
     ],
   },
@@ -29,6 +27,20 @@ const routes = [
     exact: true,
     path: '/admin',
     component: '@/pages/admin/index',
+    routes: [
+      {
+        path: '/admin',
+        component: '@/components/admin/AdminText',
+      },
+      {
+        path: '/admin/article',
+        component: '@/components/admin/ArticalSetting',
+      },
+      {
+        path: '/admin/sys/dic',
+        component: '@/components/class/Class',
+      },
+    ],
   },
 ];
 
