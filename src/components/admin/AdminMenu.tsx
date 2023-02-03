@@ -1,4 +1,6 @@
 import React, { ReactNode, useState } from 'react';
+import { history } from 'umi';
+
 import {
   AppstoreOutlined,
   MailOutlined,
@@ -12,47 +14,55 @@ type MenuItem = Required<MenuProps>['items'][number];
 
 const menuItem: MenuProps['items'] = [
   {
+    label: '首页',
+    key: 'index',
+    icon: <MailOutlined />,
+  },
+  {
     label: '文章管理',
-    key: 'mail',
+    key: 'article',
     icon: <MailOutlined />,
   },
 
   {
     label: '系统管理',
-    key: 'mail',
+    key: 'sys',
     icon: <MailOutlined />,
     children: [
       {
         label: '字典管理',
-        key: 'setting:1',
+        key: 'dic',
       },
     ],
   },
 ];
 
-// submenu keys of first level
-const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-
 const AdminMenu: React.FC = (props) => {
-  const [openKeys, setOpenKeys] = useState(['sub1']);
+  const itemOnClick = ({ keyPath }) => {
+    let path: string = '/';
+    console.log(keyPath);
 
-  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    if (keyPath[0] === 'index') {
+      history.push('/admin');
+      return;
     }
+    console.log(keyPath);
+
+    for (let index = keyPath.length - 1; index >= 0; index--) {
+      console.log(1);
+      if (index === 0) {
+        path += keyPath[index];
+      } else {
+        path += keyPath[index] + '/';
+      }
+    }
+    history.push('/admin' + path);
+    console.log(path);
+
+    // console.log(keyPath);
   };
-  return (
-    <Menu
-      mode="inline"
-      openKeys={openKeys}
-      onOpenChange={onOpenChange}
-      // style={{ width: 256 }}
-      items={menuItem}
-    />
-  );
+
+  return <Menu mode="inline" onClick={itemOnClick} items={menuItem} />;
 };
 
 export default AdminMenu;

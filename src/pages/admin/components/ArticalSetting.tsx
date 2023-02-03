@@ -9,7 +9,7 @@ const ArticalSetting: React.FC = () => {
       extra={<a href="#">More</a>}
       style={{ width: '100%' }}
     >
-      <p>Card content</p>
+      <p>文章管理</p>
       <p>Card content</p>
       <p>Card content</p>
     </Card>

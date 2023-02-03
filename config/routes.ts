@@ -24,21 +24,20 @@ const routes = [
     component: '@/pages/artical/index',
   },
   {
-    exact: true,
     path: '/admin',
     component: '@/pages/admin/index',
     routes: [
       {
         path: '/admin',
-        component: '@/components/admin/AdminText',
+        component: '@/pages/admin/components/AdminText',
       },
       {
         path: '/admin/article',
-        component: '@/components/admin/ArticalSetting',
+        component: '@/pages/admin/components/ArticalSetting',
       },
       {
         path: '/admin/sys/dic',
-        component: '@/components/class/Class',
+        component: '@/pages/admin/components/dicSetting/DicSetting',
       },
     ],
   },

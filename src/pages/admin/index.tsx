@@ -11,6 +11,7 @@ const Admin: React.FC = (props) => {
   return (
     <Fragment>
       <AdminLayout center={center} left={left} content={content}></AdminLayout>
+      {/* <div> {props.children} </div> */}
     </Fragment>
   );
 };
