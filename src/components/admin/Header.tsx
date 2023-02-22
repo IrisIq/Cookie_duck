@@ -17,8 +17,6 @@ const Header: React.FC = (props) => {
     if (e.keyPath.length > 1) {
       let url = '';
       for (let index = e.keyPath.length - 1; index >= 0; index--) {
-        // console.log(e.keyPath[index]);
-
         url += e.keyPath[index];
       }
       history.push('/index' + url);

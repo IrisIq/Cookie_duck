@@ -36,9 +36,12 @@ const menuItem: MenuProps['items'] = [
     ],
   },
 ];
+interface ClickType {
+  keyPath: String[];
+}
 
 const AdminMenu: React.FC = (props) => {
-  const itemOnClick = ({ keyPath }) => {
+  const itemOnClick = ({ keyPath }: ClickType) => {
     let path: string = '/';
     console.log(keyPath);
 
