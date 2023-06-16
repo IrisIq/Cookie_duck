@@ -5,7 +5,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Breadcrumb, Layout, Menu, Card } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -41,7 +41,9 @@ const AdminLayout: React.FC<layoutProps> = (props) => {
               backgroundColor: '#F0F2F5',
             }}
           >
-            {content()}
+            <Card style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+              {content()}
+            </Card>
           </Content>
         </Layout>
       </Content>

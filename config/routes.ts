@@ -33,7 +33,7 @@ const routes = [
       },
       {
         path: '/admin/article',
-        component: '@/pages/admin/components/ArticalSetting',
+        component: '@/pages/admin/components/ArticalSetting/index',
       },
       {
         path: '/admin/sys/dic',
