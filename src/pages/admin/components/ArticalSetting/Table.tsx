@@ -12,54 +12,59 @@ interface DataType {
 
 interface TableProps {
   articalList: any;
+  getModelRef: any;
 }
 
-const columns: ColumnsType<DataType> = [
-  {
-    title: '标题',
-    dataIndex: 'title',
-    key: 'title',
-  },
+const TableComponent: React.FC<TableProps> = (props) => {
+  const { articalList, getModelRef } = props;
 
-  {
-    title: '创建时间',
-    dataIndex: 'create_time',
-    key: 'create_time',
-  },
-  // {
-  //   title: '分类',
-  //   key: 'tags',
-  //   dataIndex: 'tags',
-  //   render: (_, { tags }) => (
-  //     <>
-  //       {tags.map((tag) => {
-  //         let color = tag.length > 5 ? 'geekblue' : 'green';
-  //         if (tag === 'loser') {
-  //           color = 'volcano';
-  //         }
-  //         return (
-  //           <Tag color={color} key={tag}>
-  //             {tag.toUpperCase()}
-  //           </Tag>
-  //         );
-  //       })}
-  //     </>
-  //   ),
-  // },
-  {
-    title: '操作',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>编辑</a>
-        <a>删除</a>
-      </Space>
-    ),
-  },
-];
+  const columns: ColumnsType<DataType> = [
+    {
+      title: '标题',
+      dataIndex: 'title',
+      key: 'title',
+    },
 
-const App: React.FC<TableProps> = (props) => {
-  const { articalList } = props;
+    {
+      title: '创建时间',
+      dataIndex: 'create_time',
+      key: 'create_time',
+    },
+    // {
+    //   title: '分类',
+    //   key: 'tags',
+    //   dataIndex: 'tags',
+    //   render: (_, { tags }) => (
+    //     <>
+    //       {tags.map((tag) => {
+    //         let color = tag.length > 5 ? 'geekblue' : 'green';
+    //         if (tag === 'loser') {
+    //           color = 'volcano';
+    //         }
+    //         return (
+    //           <Tag color={color} key={tag}>
+    //             {tag.toUpperCase()}
+    //           </Tag>
+    //         );
+    //       })}
+    //     </>
+    //   ),
+    // },
+    {
+      title: '操作',
+      key: 'action',
+      render: (_, record) => (
+        <Space size="middle">
+          <a onClick={editArtical}>编辑</a>
+          <a>删除</a>
+        </Space>
+      ),
+    },
+  ];
+
+  const editArtical = () => {
+    console.log(getModelRef());
+  };
   return (
     <Table
       columns={columns}
@@ -69,4 +74,4 @@ const App: React.FC<TableProps> = (props) => {
   );
 };
 
-export default App;
+export default TableComponent;

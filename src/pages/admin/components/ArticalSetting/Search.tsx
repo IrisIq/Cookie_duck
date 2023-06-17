@@ -2,18 +2,33 @@ import React, { ReactNode, useState } from 'react';
 import { Card, Col, Row, Select, Form, Input, Button } from 'antd';
 
 const SearchComponent: React.FC = () => {
+  const [title, setTitle] = useState('');
+
+  // 分类发生改变
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
   };
+
+  // title输入框发生改变
+  const titleChange = (e: any) => {
+    console.log(e.nativeEvent.target.value);
+    setTitle(e.nativeEvent.target.value);
+    console.log(title);
+  };
+
+  const btnClick = () => {};
+
+  const addArtical = () => {};
   return (
     <div>
       <Form>
         <Row>
           <Col span={6}>
             <Form.Item label="文章名称" name="articalName">
-              <Input />
+              <Input onChange={titleChange} />
             </Form.Item>
           </Col>
+          {/* TODO:需要接入数据字典 */}
           <Col span={6}>
             <Form.Item label="分类" name="username">
               <Select
@@ -30,7 +45,16 @@ const SearchComponent: React.FC = () => {
           </Col>
           <Col span={6}>1x</Col>
           <Col span={6}>
-            <Button type="primary">搜索</Button>
+            <Button type="primary" onClick={btnClick}>
+              搜索
+            </Button>
+            <Button
+              type="primary"
+              style={{ marginLeft: '10px' }}
+              onClick={addArtical}
+            >
+              新增
+            </Button>
           </Col>
         </Row>
       </Form>
