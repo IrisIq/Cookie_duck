@@ -12,11 +12,12 @@ interface DataType {
 
 interface TableProps {
   articalList: any;
-  getModelRef: any;
+  tableConfig: any;
+  closeModal: any;
 }
 
 const TableComponent: React.FC<TableProps> = (props) => {
-  const { articalList, getModelRef } = props;
+  const { articalList, tableConfig } = props;
 
   const columns: ColumnsType<DataType> = [
     {
@@ -55,21 +56,33 @@ const TableComponent: React.FC<TableProps> = (props) => {
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={editArtical}>编辑</a>
+          <a
+            onClick={() => {
+              editArtical(record);
+            }}
+          >
+            编辑
+          </a>
           <a>删除</a>
         </Space>
       ),
     },
   ];
 
-  const editArtical = () => {
-    console.log(getModelRef());
+  const editArtical = (record: any) => {
+    console.log(record);
+    console.log(tableConfig.modalConfig);
+    const obj = tableConfig.modalConfig;
+    obj.title = '编辑';
+    obj.isModelShow = true;
+    tableConfig.setmodalConfig({ ...obj });
   };
   return (
     <Table
       columns={columns}
       dataSource={articalList}
       style={{ width: '100%' }}
+      rowKey={'id'}
     />
   );
 };

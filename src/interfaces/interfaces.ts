@@ -15,3 +15,10 @@ export interface articlList {
 export interface getArticalList {
   data: articlList[];
 }
+export interface addArticalParams {
+  title: string;
+  author: string;
+  content: string;
+  img_url: string;
+  type?: number;
+}

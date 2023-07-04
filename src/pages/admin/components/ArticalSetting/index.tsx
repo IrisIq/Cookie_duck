@@ -14,11 +14,21 @@ import ArticalModal from './ArticalModal';
 const ArticalSetting: React.FC = () => {
   // 文章列表
   const [articalList, setArticalList] = useState([]);
+  // 弹窗配置
+  const [modalConfig, setmodalConfig] = useState({
+    isModelShow: true,
+    title: '新建文章',
+  });
+  // 表格配置 搜索配置
+  const [tableConfig, setTableConfig] = useState({
+    modalConfig,
+    setmodalConfig,
+  });
+
   const arrticalModalRef = useRef();
   useEffect(() => {
     const el2 = arrticalModalRef;
     console.log(el2);
-
     getArticals();
   }, []);
 
@@ -32,21 +42,30 @@ const ArticalSetting: React.FC = () => {
     console.log(articalList);
   };
 
-  const getModelRef = () => {
-    console.log(arrticalModalRef);
+  const showModal = () => {
+    const obj = modalConfig;
+    obj.isModelShow = true;
+    setmodalConfig({ ...obj });
+  };
+
+  const closeModal = () => {
+    const obj = modalConfig;
+    obj.isModelShow = false;
+    setmodalConfig({ ...obj });
   };
 
   return (
     <div>
-      <Button type="primary" onClick={getModelRef}>
-        123
-      </Button>
-      <SearchComponent></SearchComponent>
+      <SearchComponent searchConfig={tableConfig}></SearchComponent>
       <TableComponent
         articalList={articalList}
-        getModelRef={getModelRef}
+        tableConfig={tableConfig}
+        closeModal={closeModal}
       ></TableComponent>
-      <ArticalModal ref={arrticalModalRef}></ArticalModal>
+      <ArticalModal
+        modalConfig={modalConfig}
+        closeModal={closeModal}
+      ></ArticalModal>
     </div>
   );
 };

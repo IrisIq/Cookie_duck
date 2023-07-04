@@ -1,7 +1,11 @@
 import React, { ReactNode, useState } from 'react';
 import { Card, Col, Row, Select, Form, Input, Button } from 'antd';
 
-const SearchComponent: React.FC = () => {
+interface SerarchProps {
+  searchConfig: any;
+}
+const SearchComponent: React.FC<SerarchProps> = (props) => {
+  const { searchConfig } = props;
   const [title, setTitle] = useState('');
 
   // 分类发生改变
@@ -18,7 +22,12 @@ const SearchComponent: React.FC = () => {
 
   const btnClick = () => {};
 
-  const addArtical = () => {};
+  const addArtical = () => {
+    const obj = searchConfig.modalConfig;
+    obj.title = '新增';
+    obj.isModelShow = true;
+    searchConfig.setmodalConfig({ ...obj });
+  };
   return (
     <div>
       <Form>
