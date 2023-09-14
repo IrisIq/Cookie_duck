@@ -1,6 +1,7 @@
 // Class组件所需接口
 export interface getArticalListParams {
   type?: number;
+  id?: number;
 }
 export interface articlList {
   id: number; // 标记为主列，值自动生成

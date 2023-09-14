@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+// import PubSub from 'pubsub-js';
 
 interface DataType {
   key: string;
@@ -25,7 +26,6 @@ const TableComponent: React.FC<TableProps> = (props) => {
       dataIndex: 'title',
       key: 'title',
     },
-
     {
       title: '创建时间',
       dataIndex: 'create_time',
@@ -75,7 +75,9 @@ const TableComponent: React.FC<TableProps> = (props) => {
     const obj = tableConfig.modalConfig;
     obj.title = '编辑';
     obj.isModelShow = true;
+    obj.id = record.id;
     tableConfig.setmodalConfig({ ...obj });
+    // PubSub.publish('articalForm', record);
   };
   return (
     <Table

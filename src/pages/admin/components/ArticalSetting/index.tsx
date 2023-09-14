@@ -18,6 +18,7 @@ const ArticalSetting: React.FC = () => {
   const [modalConfig, setmodalConfig] = useState({
     isModelShow: true,
     title: '新建文章',
+    id: '',
   });
   // 表格配置 搜索配置
   const [tableConfig, setTableConfig] = useState({
@@ -32,6 +33,16 @@ const ArticalSetting: React.FC = () => {
     getArticals();
   }, []);
 
+  const ArticalModalShow = () => {
+    if (modalConfig.isModelShow) {
+      return (
+        <ArticalModal
+          modalConfig={modalConfig}
+          closeModal={closeModal}
+        ></ArticalModal>
+      );
+    }
+  };
   // 获取所有文章
   const getArticals = async () => {
     const { data: resData } = await getAllArticals({});
@@ -62,10 +73,11 @@ const ArticalSetting: React.FC = () => {
         tableConfig={tableConfig}
         closeModal={closeModal}
       ></TableComponent>
-      <ArticalModal
+      {/* <ArticalModal
         modalConfig={modalConfig}
         closeModal={closeModal}
-      ></ArticalModal>
+      ></ArticalModal> */}
+      {ArticalModalShow()}
     </div>
   );
 };
