@@ -8,7 +8,6 @@ interface classProps {
 }
 
 const Class: React.FC<classProps> = (props) => {
-  console.log(props);
   const { value } = props;
   const goUrl = () => {
     history.push('/artical/' + value.id);

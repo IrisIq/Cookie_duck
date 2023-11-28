@@ -9,8 +9,6 @@ export function postAction(url: string, parameter = {}) {
 
 // //get
 export function getAction(url: string, parameter = {}) {
-  console.log(url);
-
   return axios({
     url: url,
     method: 'get',
