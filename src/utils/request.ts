@@ -18,6 +18,17 @@ export function getAction(url: string, parameter = {}) {
   });
 }
 
+// put
+export function putAction(url: string, parameter = {}) {
+  return axios({
+    url: url,
+    method: 'put',
+    data: parameter,
+  }).catch((res) => {
+    console.log(res);
+  });
+}
+
 //get
 // export function getAction(url: string, parameter = {}) {
 //   return axios.get(url, parameter);

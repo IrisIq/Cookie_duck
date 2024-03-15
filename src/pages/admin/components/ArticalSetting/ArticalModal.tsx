@@ -1,6 +1,11 @@
 import { Button, Modal, Form, Input, Switch } from 'antd';
 import React, { useState, forwardRef, useEffect } from 'react';
-import { addArtical, getAllArticals, getOneArticals } from '@/api/api';
+import {
+  addArtical,
+  getAllArticals,
+  getOneArticals,
+  editArticals,
+} from '@/api/api';
 // import PubSub from 'pubsub-js';
 
 const { TextArea } = Input;
@@ -57,7 +62,11 @@ const ArticalModal: React.FC<ArticalModalProps> = (props) => {
     closeModal();
   };
   // 修改
-  const editArtical = (list: any) => {
+  const editArtical = async (list: any) => {
+    console.log(list);
+    const res = await editArticals({ id: modalConfig.id, ...list });
+    console.log(res);
+
     closeModal();
   };
   const handleCancel = () => {

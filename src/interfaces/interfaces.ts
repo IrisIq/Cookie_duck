@@ -22,6 +22,7 @@ export interface addArticalParams {
   content: string;
   img_url: string;
   type?: number;
+  id?: string;
 }
 
 export interface articalParams {
